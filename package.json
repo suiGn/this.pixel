@@ -1,0 +1,16 @@
+{
+    "name": "this.pixels",
+    "version": "3.2.1",
+    "description": "PixelGrid IOS for neurons.me",
+    "main": "PixelGrid.js",
+    "scripts": {
+      "test": "test"
+    },
+    "keywords": [
+      "image",
+      "input"
+    ],
+    "author": "suiGn",
+    "license": "MIT"
+  }
+  
