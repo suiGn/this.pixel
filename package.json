@@ -1,16 +1,22 @@
 {
-    "name": "this.pixels",
-    "version": "3.2.1",
-    "description": "PixelGrid IOS for neurons.me",
-    "main": "PixelGrid.js",
+    "name": "this.pixel",
+    "version": "3.3.5",
+    "description": "Pixel functionalities for neurons.me",
+    "main": "pixels.js",
     "scripts": {
-      "test": "test"
+        "test": "test"
     },
     "keywords": [
-      "image",
-      "input"
+        "image",
+        "input"
     ],
     "author": "suiGn",
-    "license": "MIT"
-  }
-  
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/suiGn/Pixels.git"
+    },
+    "dependencies": {
+        "this.pixelgrid": "^3.3.2"
+    }
+}
