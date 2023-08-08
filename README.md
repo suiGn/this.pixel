@@ -4,13 +4,13 @@
 First, you install the `this.pixels` package in your project:
 
 ```js
-npm install this.pixels
+npm install this.pixel
 ```
 
 In your project's `index.js` or any other file where you want to use `PixelGrid`, you import it like this:
 
 ```js
-const PixelGrid = require('this.pixels');
+const PixelGrid = require('this.pixel');
 ```
 
 Now, you can create an instance of `PixelGrid` and use it as needed:
@@ -36,8 +36,6 @@ myCanvasManager.applyFilter(...);
 myCanvasManager.resize(...); // etc.
 ```
 
-
-
 #  Quickstart Guide
 
  How to use the `this.pixel` library with the `PixelGrid` class:
@@ -60,8 +58,6 @@ let pixel = pixelGrid.getPixel(10, 20);
 console.log(pixel); // Logs: [255, 0, 0, 255]
 // You can now use this pixel data for various operations...
 ```
-
-For this quickstart guide, I am assuming that the `this.pixel` library is structured correctly and can be imported as a Node.js module.
 
 Remember, this is a basic example. Depending on your application, you can create complex pixel manipulation operations using the `getPixel` and `setPixel` methods. You might want to apply filters, perform image processing operations, create visual effects, and much more.
 
