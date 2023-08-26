@@ -13,11 +13,9 @@ class PixelGridManager {
         // Remove all entries after the current history index
         // (necessary for redo after a new action is done)
         this.history = this.history.slice(0, this.historyIndex + 1);
-
         const imageData = this.pixelGrid.ctx.getImageData(0, 0, this.pixelGrid.width, this.pixelGrid.height);
         this.history.push(imageData);
         this.historyIndex++;
-
         // Optionally, to prevent the history from growing indefinitely:
         const MAX_HISTORY = 20;  // or whatever number you choose
         if (this.history.length > MAX_HISTORY) {
@@ -25,25 +23,21 @@ class PixelGridManager {
             this.historyIndex--;
         }
     }
-
     undo() {
         if (this.canUndo()) {
             this.historyIndex--;
             this.pixelGrid.ctx.putImageData(this.history[this.historyIndex], 0, 0);
         }
     }
-
     redo() {
         if (this.canRedo()) {
             this.historyIndex++;
             this.pixelGrid.ctx.putImageData(this.history[this.historyIndex], 0, 0);
         }
     }
-
     canUndo() {
         return this.historyIndex > 0;
     }
-
     canRedo() {
         return this.historyIndex < this.history.length - 1;
     }
@@ -59,7 +53,6 @@ class PixelGridManager {
             }
         }
     }
-   
     loadImage(imageSrc, callback = null) {
         if (callback !== null && typeof callback !== 'function') {
             throw new TypeError('Expected the callback to be a function or null.');
@@ -95,10 +88,8 @@ class PixelGridManager {
     resize(width, height) {
         // First, store the current image data or source for redrawing after resizing
         const currentImageData = this.pixelGrid.ctx.getImageData(0, 0, this.pixelGrid.width, this.pixelGrid.height);
-    
         // Then, resize the canvas
         this.pixelGrid.resize(width, height);
-    
         // Check if we have an image source, and use it to redraw
         if (this.lastImageSrc) {
             const img = new Image();
@@ -118,7 +109,5 @@ class PixelGridManager {
             this.pixelGrid.initialize();
         }
     }
-
 }
-
 export default PixelGridManager;
