@@ -1,8 +1,8 @@
 {
     "name": "this.pixel",
-    "version": "3.4.7",
+    "version": "3.4.8",
     "description": "Pixel functionalities for neurons.me",
-    "main": "pixels.js",
+    "main": "./src/pixels.js",
     "scripts": {
         "test": "test"
     },

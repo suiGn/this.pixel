@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
+        /* Base Styles */
         body {
             font-family: Arial, sans-serif;
             display: flex;
@@ -12,17 +13,74 @@
             justify-content: center;
             height: 100vh;
             margin: 0;
+            background-color: rgb(50, 50, 50); /* Dark Background */
+            color: #0af; /* Neon blue */
+            padding-top: 60px; /* content break so it doesn't start beneath the fixed navbar */
         }
-        #pixelgrid-properties {
-            margin-top: 20px;
-            border: 1px solid #ddd;
-            padding: 10px;
+h1, h2, h3, p, button, select, label {
+    text-shadow: 0 0 5px #0af;
+}
+
+#tools {
+    position: fixed; /* This makes the navbar fixed */
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%; /* Full width */
+    height: 50px; /* Height of the navbar */
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centering items horizontally */
+    padding: 5px;
+    background-color: rgba(0, 0, 0, 0.7); /* Making the background slightly transparent */
+    border-bottom: 1px solid #0af; /* Border for a touch of style */
+    z-index: 1000; /* Ensure the navbar is always on top */
+}
+
+#tools > * {
+    margin: 5px; /* Spacing between elements */
+}
+
+
+ #pixelgrid-properties {
+    margin-top: 20px;
+    border: 1px solid #ddd;
+    padding: 10px;
+    box-shadow: 0px 0px 10px 2px #0af;
+      }
+
+#pixelGridSliders div {
+            margin: 10px 0;
         }
+
+button, select, input[type="file"] {
+    cursor: pointer;
+    padding: 8px 15px;
+    background-color: transparent; /* Transparent background */
+    color: #0af;
+    border: 1px solid #0af;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s;
+    margin-right: 10px; /* Space between each item */
+}
+
+button:hover, input[type="file"]:hover {
+    background-color: rgba(10, 170, 255, 0.1); /* Slightly visible on hover */
+    transform: scale(1.05); /* Slight pop effect on hover */
+}
+       
+
+        /* For VR-friendly elements and cyberpunk aesthetic */
+        ::selection {
+            background-color: #0af; /* Neon blue */
+            color: rgb(50, 50, 50);
+        }
+
     </style>
     <title>This.Pixel and PixelGrid working together.</title>
 </head>
 <body>
-        <div id="tools" style="width: 808px;">
+        <div id="tools">
             <button id="captureScreen">Capture Screen</button>
             <select id="filters">
                 <option value="grayscale">Grayscale</option>

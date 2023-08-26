@@ -1,6 +1,6 @@
 //pixels.js
-import PixelGrid from 'this.pixelgrid';
-import PixelGridManager from './PixelGridManager'; 
+let PixelGrid = require('this.pixelgrid');
+let PixelGridManager = require('./PixelGridManager');
 
 export {
     PixelGrid,
