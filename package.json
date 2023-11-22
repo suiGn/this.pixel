@@ -10,10 +10,6 @@
         "image",
         "input"
     ],
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/suiGn/Pixels.git"
-    },
     "dependencies": {
         "this.pixelgrid": "^3.4.0"
     },
@@ -25,6 +21,12 @@
         "webpack-cli": "^5.1.4",
         "webpack-dev-server": "^4.15.1"
     },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/suiGn/Pixels.git"
+    },
+    "homepage": "https://www.npmjs.com/package/this.pixel",
+    "docs": "https://suiGn.github.io/Pixels",
     "author": "suiGn",
     "license": "MIT",
     "repoType": "NPM Package"
