@@ -123,6 +123,182 @@
 
 
 
+    <section>
+        <article><img src="./_._.svg" alt="SVG Image" width="123" height="123" style="width123px; height:123px;">
+<h1>this.pixel</h1>
+<h2>Installation</h2>
+<p>npm install this.pixel</p>
+<p><code>Pixels</code> is a package containing custom web components for handling pixel-based operations. One of the main components in this package is <code>PixelGrid</code>.</p>
+<p><strong>Responsibility:</strong> Display pixels and provide basic interactions with them.
+It's a visual component that could be utilized by other modules or functionalities.
+High-level operations on pixels, source management (like webcam feed), processing, transformations, and other functionalities.
+Utilizes the <strong>PixelGrid</strong> for visual representation and feedback but is not limited by it.</p>
+<p>First, you install the <code>this.pixels</code> package in your project:</p>
+<pre class="prettyprint source lang-bash"><code>npm install this.pixel
+</code></pre>
+<p>In your project's <code>index.js</code> or any other file where you want to use <code>PixelGrid</code>, you import it like this:</p>
+<pre class="prettyprint source lang-js"><code>const PixelGrid = require('this.pixel');
+</code></pre>
+<p>Now, you can create an instance of <code>PixelGrid</code> and use it as needed:</p>
+<pre class="prettyprint source lang-js"><code>const pixelGrid = new PixelGrid(800, 600); // Create a new instance with width 800 and height 600
+// Get the color of a specific pixel at coordinates (x, y)
+const pixelColor = pixelGrid.getPixel(x, y);
+// Set the color of a specific pixel at coordinates (x, y)
+pixelGrid.setPixel(x, y, [255, 0, 0, 255]); // Set the pixel to red
+// Access all the pixels in the pixel grid
+const allPixels = pixelGrid.pixels;
+</code></pre>
+<p>The <code>PixelGrid</code> class will now be available for you to use in your project, thanks to the <code>this.pixels</code> package. It provides an abstraction over the canvas element and allows you to perform low-level manipulation of image data using its methods.</p>
+<pre class="prettyprint source lang-js"><code>const { PixelGrid, CanvasManager } = require('this.pixels');
+const myPixelGrid = new PixelGrid({ width: 500, height: 500, pixelSize: 2 }); 
+const myCanvasManager = new CanvasManager(myPixelGrid);
+// Ahora puedes usar los métodos de CanvasManager
+myCanvasManager.applyFilter(...);
+myCanvasManager.resize(...); // etc.
+</code></pre>
+<h2><strong>Use the attribute in your HTML:</strong></h2>
+<p>If you want the canvas to be optimized for frequent reads:</p>
+<pre class="prettyprint source lang-html"><code>&lt;pixel-grid will-read-frequently=&quot;true&quot;>&lt;/pixel-grid>
+</code></pre>
+<p>If you don't want to optimize for frequent reads:</p>
+<pre class="prettyprint source lang-html"><code>&lt;pixel-grid>&lt;/pixel-grid>
+</code></pre>
+<p>Or:</p>
+<pre class="prettyprint source lang-html"><code>&lt;pixel-grid will-read-frequently=&quot;false&quot;>&lt;/pixel-grid>
+</code></pre>
+<p><strong>willReadFrequently</strong> in Canvas 2D Context
+The willReadFrequently option is a flag that can be set when obtaining a 2D rendering context for an HTML <canvas> element. It provides a hint to the browser about how you intend to use the canvas, specifically whether you'll be reading back pixel data from it frequently or not.</p>
+<p><strong>Usage:</strong></p>
+<pre class="prettyprint source lang-javascript"><code>const ctx = canvas.getContext('2d', { willReadFrequently: true });
+</code></pre>
+<p><strong>Values:</strong>
+<strong>true</strong>: This suggests that you intend to read the canvas pixel data frequently using methods like getImageData(). When set to true, the browser might optimize read operations, potentially at the expense of write/draw operations.
+<strong>false (default):</strong> This is the standard behavior where the browser assumes that you're primarily drawing to the canvas and not reading back the data frequently.</p>
+<h5><strong>When to use it:</strong></h5>
+<p><strong>Use true when:</strong>
+You need to frequently retrieve pixel data from the canvas, for example, for image processing or analysis tasks.
+You're building tools like color pickers that need to continuously sample pixel values.
+<strong>Use false when:</strong>
+Your primary operations are drawing, rendering, or animating on the canvas, and you rarely need to read the pixel data.
+You're developing games, animations, or visualizations where the main concern is the rendering performance.</p>
+<h5><strong>Conclusion:</strong></h5>
+<p>The willReadFrequently option gives developers finer control over canvas performance trade-offs. By signaling the browser about your primary use-case, you can potentially achieve better performance for your specific needs. However, it's essential to test the actual performance in real-world scenarios, as the optimization effects can vary based on the browser and the underlying hardware.</p>
+<p><strong>Library Export in Webpack Config</strong>: In the Webpack configuration, we're defining a library output as pixels. When the bundling is complete, you should be able to access exported functions or classes via the global pixels object in the browser.</p>
+<p>Given that, if you are trying to instantiate or call any methods in your HTML, you should be referencing them through this pixels object, like:</p>
+<pre class="prettyprint source lang-js"><code>const instance = new pixels.PixelGridManager();
+</code></pre>
+<h4><strong>Using the function in another module:</strong></h4>
+<p>Now, let's assume you have another JavaScript file/module in your project, say main.js. In this file, you want to add a PixelGrid to the body, but only under certain conditions (like when a button is clicked). Here's how you'd do it:</p>
+<pre class="prettyprint source lang-js"><code>// main.js
+// Import the function from pixels.js
+import { addPixelGridToBody } from './path/to/pixels';
+// Use the function when needed
+document.querySelector(&quot;#addGridButton&quot;).addEventListener(&quot;click&quot;, function() {
+    addPixelGridToBody();
+});
+</code></pre>
+<p>In this example, when an HTML element with the ID addGridButton is clicked, it will trigger the addPixelGridToBody function, adding a PixelGrid to the document's body.</p>
+<p>The 'path-to-pixels' in the import statement should be replaced with the relative path from the module you're importing to, to the module you're importing from. So if main.js and pixels.js are in the same directory, the import statement would be:</p>
+<pre class="prettyprint source lang-js"><code>import { addPixelGridToBody } from './pixels';
+</code></pre>
+<h5>How to use the <code>this.pixel</code> library with the <code>PixelGrid</code> class:</h5>
+<pre class="prettyprint source lang-js"><code>// Import the library
+const { PixelGrid } = require('this.pixels');
+
+// Create a new PixelGrid instance
+let pixelGrid = new PixelGrid({
+    width: 800, 
+    height: 600,
+    pixelSize: 2
+});
+
+// Set a pixel at position (10, 20) with red color
+pixelGrid.setPixel(10, 20, [255, 0, 0, 255]);
+// Get the pixel at position (10, 20)
+let pixel = pixelGrid.getPixel(10, 20);
+console.log(pixel); // Logs: [255, 0, 0, 255]
+// You can now use this pixel data for various operations...
+</code></pre>
+<p>Remember, this is a basic example. Depending on your application, you can create complex pixel manipulation operations using the <code>getPixel</code> and <code>setPixel</code> methods. You might want to apply filters, perform image processing operations, create visual effects, and much more.</p>
+<p><strong>Also, don't forget that the color data is in RGBA format.</strong> Each color value is an integer from 0 to 255, and the alpha value represents the opacity of the pixel (0 = fully transparent, 255 = fully opaque).</p>
+<p>If you have implemented additional methods such as <code>applyFilter</code>, <code>loadImage</code>, <code>drawImage</code>, you would use them similarly, by calling the method on your <code>pixelGrid</code> instance.</p>
+<p>For example, you had an <code>applyFilter</code> method, you could use it like this:</p>
+<pre class="prettyprint source lang-js"><code>// Define a simple filter function to invert colors
+function invertColors([r, g, b, a]) {
+    return [255 - r, 255 - g, 255 - b, a];
+}
+// Apply the filter to all pixels
+pixelGrid.applyFilter(invertColors);
+</code></pre>
+<p>This would invert the colors of all pixels in the <code>pixelGrid</code>. Please replace the code with your actual implementation. This is just a simple example.</p>
+<h2>PixelGrid</h2>
+<p><code>PixelGrid</code> is a web component that provides an abstraction over a standard HTML5 Canvas. It makes the canvas behave like a 2D array (or matrix) of pixels..., where each pixel can be accessed or modified individually. This class is primarily designed for use in projects involving neural networks, machine learning and similar data-intensive applications.</p>
+<p>The pixels of the canvas are stored in a 1D array in RGBA format, where each pixel is represented as an array of 4 integers (from 0 to 255) representing the red, green, blue and alpha (transparency) values respectively. The class provides methods for getting and setting the color of individual pixels. <strong>PixelGrid</strong> allows for low-level manipulation of image data, enabling complex image processing tasks. It is particularly suited for applications that need to treat image data as a vector or matrix of numerical values, such as neural network-based image classifiers, image filters, and other machine learning algorithms.</p>
+<p><strong>Note:</strong> This class assumes that the width and height of the canvas are specified at the time of instantiation, and does not currently support dynamically resizing the canvas. The canvas is assumed to be empty at initialization, and the <code>initialize</code> method must be called before the canvas can be used.</p>
+<p>This class extends the HTMLElement and can be used directly in the HTML like this:</p>
+<pre class="prettyprint source lang-html"><code>&lt;pixel-grid width=&quot;400&quot; height=&quot;300&quot;>&lt;/pixel-grid>
+</code></pre>
+<h1>Context of Abstraction for Machine Learning Standardization</h1>
+<p>Traditional web development elements, from images to audio, are designed mainly for display and interaction. But what if they could be seamlessly converted into standardized formats primed for machine learning? That's the vision behind the <strong>this.</strong> modules.</p>
+<p>An Introduction to the this. JavaScript Library: Standardizing Web Development Elements for Machine Learning.</p>
+<h2>Principles Behind the this. Library:</h2>
+<ul>
+<li>
+<h3><strong>Abstraction for ML:</strong></h3>
+</li>
+</ul>
+<p>The library's core principle is to abstract traditional web elements so that they're immediately primed for machine learning. It's about viewing web content not just as data but as structured, consistent, and standardized data.</p>
+<ul>
+<li>
+<h3><strong>Built on Web Standards:</strong></h3>
+</li>
+</ul>
+<p>Rooted in JavaScript, the this. library builds upon public web development standards. The aim is to ensure that developers remain within familiar territories, even as they venture into the world of machine learning.</p>
+<ul>
+<li>
+<h3><strong>Open and Collaborative:</strong></h3>
+</li>
+</ul>
+<p>The this. library champions open standards. By leveraging public web standards, it invites collaboration, hoping to create a community that continually refines and enhances the bridge between web development and machine learning.</p>
+<p><a href="https://www.neurons.me">neurons.me</a>
+<a href="https://www.neurons.me/this">neurons.me/this</a></p>
+<h1>Clone THIS Sandbox DEMO Playground</h1>
+<h3>Conceptual Flow:</h3>
+<ul>
+<li>[ ] Set up your context with <a href="https://www.npmjs.com/package/this.me">this.me.</a></li>
+<li>[ ] Create a neural network using <a href="https://www.neurons.me">neurons.me</a>.</li>
+<li>[ ] Define the data you'd like your neural network to recognize or process with <a href="https://www.neurons.me/this">this.</a> modules.</li>
+<li>[ ] Use <a href="https://www.npmjs.com/package/this.be">this.be</a> to maintain a state or context, - watching over the <a href="https://www.npmjs.com/package/this.pixel">PixelGrid</a> and any other states you define for example.</li>
+<li>[ ] Define desired status and handlers, <a href="https://www.npmjs.com/package/be.this">be.this</a>.</li>
+<li>[ ] Keep <a href="https://www.npmjs.com/package/i.mlearning">i.mlearning</a>.</li>
+</ul>
+<p>Welcome to the Playground, where the entire THIS.ME suite comes together with NEURONS.ME to provide a rich development and execution environment for your AI adventures.</p>
+<h2>Sandbox Demo Quick Start</h2>
+<h3>1. Clone the Repository</h3>
+<pre class="prettyprint source lang-bash"><code>git clone https://github.com/suiGn/.me.git
+</code></pre>
+<h3>2. Navigate to the Project Directory</h3>
+<pre class="prettyprint source lang-bash"><code>cd .me
+</code></pre>
+<h3>3. Install Dependencies</h3>
+<p>You can use either Yarn or npm to install the necessary dependencies.</p>
+<p><strong>Using Yarn:</strong></p>
+<pre class="prettyprint source lang-bash"><code>yarn install 
+</code></pre>
+<p><strong>Using npm:</strong></p>
+<pre class="prettyprint source lang-bash"><code>npm install
+</code></pre>
+<h3>4. Launch the Application</h3>
+<pre class="prettyprint source"><code>npx electron index.js
+</code></pre>
+<h2>License &amp; Policies</h2>
+<ul>
+<li><strong>License</strong>: MIT License (see LICENSE for details).</li>
+<li><strong>Privacy Policy</strong>: Respects user privacy; no collection/storage of personal data.</li>
+<li><strong>Terms of Usage</strong>: Use responsibly. No guarantees/warranties provided. <a href="https://www.neurons.me/terms-of-use">Terms</a> | <a href="https://www.neurons.me/privacy-policy">Privacy</a></li>
+</ul></article>
+    </section>
+
 
 
 

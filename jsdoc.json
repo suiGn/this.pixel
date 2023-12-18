@@ -4,7 +4,9 @@
   },
   "opts": {
     "destination": "./docs",
-    "template": "../neurons.me/src/assets/better-docs"
+    "template": "../../../../../Sandbox/dev_tools/assets/better-docs",
+    "readme": "./README.md"
+
   },
   "templates": {
     "cleverLinks": false,
