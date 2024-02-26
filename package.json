@@ -29,5 +29,6 @@
     "docs": "https://suiGn.github.io/Pixels",
     "author": "suiGn",
     "license": "MIT",
-    "repoType": "NPM Package"
+    "repoType": "NPM Package",
+    "category": "dataformatter"
 }
