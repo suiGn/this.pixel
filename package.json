@@ -1,9 +1,10 @@
 {
     "name": "this.pixel",
-    "version": "3.4.9",
+    "version": "3.4.91",
     "description": "Pixel functionalities for neurons.me",
-    "main": "./src/pixels.js",
+    "main": "index.js",
     "scripts": {
+        "start": "node index.js",
         "test": "test"
     },
     "keywords": [
@@ -11,15 +12,10 @@
         "input"
     ],
     "dependencies": {
-        "this.pixelgrid": "^3.4.0"
+   
     },
     "devDependencies": {
-        "@babel/core": "^7.22.10",
-        "@babel/preset-env": "^7.22.10",
-        "babel-loader": "^9.1.3",
-        "webpack": "^5.88.2",
-        "webpack-cli": "^5.1.4",
-        "webpack-dev-server": "^4.15.1"
+      
     },
     "repository": {
         "type": "git",
@@ -27,6 +23,7 @@
     },
     "homepage": "https://www.npmjs.com/package/this.pixel",
     "docs": "https://suiGn.github.io/Pixels",
+    "type":"module",
     "author": "suiGn",
     "license": "MIT",
     "repoType": "NPM Package",
