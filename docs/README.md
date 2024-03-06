@@ -1,13 +1,31 @@
 <img src="./_._.svg" alt="SVG Image" width="123" height="123" style="width123px; height:123px;">
 
-# this.pixel
+# THIS.PIXEL
 
-### [UNDER DEVELOPMENT - SUBJECT TO MAJOR CHANGES]
+-----------
+
+### [Project Status : Experimental and Under Development, Subject to Major Changes]
+
+The module is in active development, and as such, it is subject to significant changes as we refine our approach and methodologies to best support our goals.
+
+Visit: https://neurons.me to learn more.
+
+----------
+
+# this.pixel for General Pixel-Level Abstraction:
+
+Clarifying this.pixel to focus on pixel-level data abstraction allows it to serve a unique purpose **distinct from this.img and this.video**, which deal with more specific file formats or higher-level constructs. **this.pixel** will act as a module for any scenario where individual pixel manipulation or analysis is required, irrespective of the source being an image, a video, or even live screen data.
+
+This distinction can be particularly useful in fields like computer graphics, visualization, or areas where the **raw pixel data needs to be accessed** or modified directly for various effects, analyses, or transformations. It opens up possibilities for creative and technical applications, from artistic pixel manipulation to detailed scientific visualizations.
 
 ## Installation
 ```bash
 npm install this.pixel
 ```
+
+
+
+----------
 
 # About All.This
 
@@ -27,17 +45,19 @@ npm install this.pixel
 
 visit: [Neurons.me Glossary](https://suign.github.io/neurons.me/Glossary) 
 
-Learn more at https://neurons.me
-
-**Author:** SuiGn
-
-[By neurons.me](https://neurons.me)
-
-<img src="https://suign.github.io/neurons.me/neurons_logo.png" alt="neurons.me logo" width="123" height="123" style="width123px; height:123px;">
-
 ## License & Policies
 
 - **License**: MIT License (see LICENSE for details).
+
 - **Privacy Policy**: Respects user privacy; no collection/storage of personal data.
+
 - **Terms of Usage**: Use responsibly. No guarantees/warranties provided. [Terms](https://www.neurons.me/terms-of-use) | [Privacy](https://www.neurons.me/privacy-policy)
+
+  **Learn more** at https://neurons.me
+
+  **Author:** SuiGn
+
+  [By neurons.me](https://neurons.me)
+
+  <img src="https://suign.github.io/neurons.me/neurons_logo.png" alt="neurons.me logo" width="123" height="123" style="width123px; height:123px;">
 
