@@ -1,6 +1,6 @@
 {
     "name": "this.pixel",
-    "version": "3.4.91",
+    "version": "3.4.92",
     "description": "Pixel functionalities for neurons.me",
     "main": "index.js",
     "scripts": {
